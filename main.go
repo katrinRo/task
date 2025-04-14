@@ -91,9 +91,9 @@ func startServer(todoController *controller.TodoController) error {
 	router.GET("/swagger/*filepath", swaggerHandler)
 	router.POST("/create", todoController.Create)
 	router.GET("/get/:id", todoController.Get)
-	router.POST("/update/:id", todoController.Update)
+	router.POST("/update", todoController.Update)
 	router.DELETE("/delete/:id", todoController.Delete)
-	router.GET("/list", todoController.List)
+	router.POST("/list", todoController.List)
 
 	return http.ListenAndServe(":8080", router)
 }

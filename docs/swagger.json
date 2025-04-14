@@ -9,6 +9,18 @@
         "/get/{id}": {
             "get": {
                 "summary": "Получение задачи",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Идентификатор задачи",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Ok",
@@ -62,7 +74,9 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/TaskRequest"
-                            }
+                            },
+                            "example": "{\n  \"title\": \"Task1\",\n  \"description\": \"Morning task\",\n  \"date\": \"2025-03-25\",\n  \"status\": true\n}"
+
                         }
                     }
                 },
@@ -102,7 +116,8 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/TaskRequestUpdate"
-                            }
+                            },
+                            "example": "{\n \"id\": 1,\n  \"title\": \"Task1\",\n  \"description\": \"Morning task\",\n  \"date\": \"2025-03-25\",\n  \"status\": true\n}"
                         }
                     }
                 },
@@ -146,6 +161,18 @@
         "/delete/{id}": {
             "delete": {
                 "summary": "Удаление задачи",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "Идентификатор задачи",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Ok"
@@ -192,7 +219,8 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/ListRequest"
-                            }
+                            },
+                            "example": "{\n \"limit\": 10,\n  \"offset\": 0 \n }"
                         }
                     }
                 },
