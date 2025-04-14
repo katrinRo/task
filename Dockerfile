@@ -22,7 +22,7 @@ FROM alpine
 # Копируем скомпилированное приложение
 COPY --from=builder /app/task .
 
-COPY ./sql .
+COPY ./sql sql
 
 COPY ./docs docs
 

@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 	"github.com/julienschmidt/httprouter"
 	_ "github.com/lib/pq"
 	"github.com/swaggo/http-swagger"
@@ -15,21 +15,13 @@ import (
 	"todolist/service"
 )
 
-func init() {
-	// Загрузка .env файла
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-}
-
 func main() {
 	// Чтение переменных окружения
-	user := os.Getenv("db_user")
-	host := os.Getenv("db_host")
-	port := os.Getenv("db_port")
-	dbname := os.Getenv("db_name")
-	password := os.Getenv("db_password")
+	user := os.Getenv("DB_USER")
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	dbname := os.Getenv("DB_NAME")
+	password := os.Getenv("DB_PASSWORD")
 
 	// Подключение к базе данных
 	db, err := connectToDatabase(user, host, port, dbname, password)
