@@ -89,6 +89,7 @@ func startServer(todoController *controller.TodoController) error {
 	router := httprouter.New()
 	router.Handler("GET", "/static/swagger/docs/*filepath", http.StripPrefix("/static/swagger/docs/", http.FileServer(http.Dir("./docs"))))
 	router.GET("/swagger/*filepath", swaggerHandler)
+	router.POST("/create", todoController.Create)
 	router.GET("/get/:id", todoController.Get)
 	router.POST("/update/:id", todoController.Update)
 	router.DELETE("/delete/:id", todoController.Delete)
