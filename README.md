@@ -6,6 +6,7 @@
 
 bash
 `git clone https://github.com/katrinRo/task.git`
+
 Сборка и запуск контейнеров Docker:
 
 bash
