@@ -24,5 +24,8 @@ COPY --from=builder /app/task .
 
 COPY ./sql .
 
+COPY ./docs docs
+
+
 # Указываем команду для запуска приложения
 CMD ["./task"]
