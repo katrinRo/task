@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: baDsu_alo76hrQa*
+      DB_NAME: todo_task
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_started
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: todo_task
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: baDsu_alo76hrQa*
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}
